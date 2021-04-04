@@ -1,12 +1,12 @@
 #include "toolkit.h"
 #include <stdio.h>
-//#include <fcntl.h>
+#include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 
 
-int _read(char *src) {
+int read_file(char *src) {
 	// Currently only outputs file data
 	FILE *file = fopen(src, "r");
 	if (!file) {
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
 		return 0;
 	} else if (strcmp(opt, "-r") == 0) {
 		int src_t = argv[2];
-		_read(src_t);
+		read_file(src_t);
 	} else {
 		return -1;
 	}
