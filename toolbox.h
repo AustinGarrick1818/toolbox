@@ -7,4 +7,4 @@
 
 
 // Functions
-int _read(char *src);
+int read_file(char *src);

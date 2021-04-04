@@ -1,4 +1,4 @@
-#include "toolkit.h"
+#include "toolbox.h"
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -14,11 +14,11 @@ int read_file(char *src) {
 		return -1;
 	}
 
-	lseek(file, 0, SEEK_SET);
 	int file_len = strlen(file);
 
 	// Allocate memory to size of file
 	char *buffer = malloc(file_len * sizeof(char));
+
 	if (!buffer) {
 		printf("Error: memory allocation error\n");
 		fclose(file);
@@ -33,7 +33,7 @@ int read_file(char *src) {
 	}
 
 	// Print data to screen
-	printf("\n\ns\n\n", buffer);
+	printf("\n\n%c\n\n", buffer);
 	free(buffer);
 	fclose(file);
 
@@ -53,12 +53,13 @@ int main(int argc, char *argv[]) {
 	}
 
 	int opt = argv[1];
-	if (strcmp(opt, "-v") == 0) {
+	if (strcmp(opt, "-version") == 0) {
 		printf("Toolbox v1.0\n");
 		return 0;
-	} else if (strcmp(opt, "-r") == 0) {
+	} else if (strcmp(opt, "-read") == 0) {
 		int src_t = argv[2];
 		read_file(src_t);
+    } else if (strcmp(opt, ""))
 	} else {
 		return -1;
 	}
